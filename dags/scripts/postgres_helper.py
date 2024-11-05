@@ -1,4 +1,5 @@
 import psycopg2
+import pandas as pd
 from sqlalchemy import create_engine, text
 import scripts.constants as c
 
@@ -12,6 +13,11 @@ def run_sql(create_sql):
         conn.execute(text(create_sql))
         conn.commit()
         conn.close()
+
+
+def read_sql_table(table_name):
+    return pd.read_sql_table(table_name, con=engine)
+
 
 def upload_overwrite_table(df, table_name):
     # Upload DataFrame to PostgreSQL
