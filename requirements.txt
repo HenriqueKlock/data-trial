@@ -10,3 +10,4 @@ pandas
 pyarrow
 fastparquet
 great_expectations
+textblob
